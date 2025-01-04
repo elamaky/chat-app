@@ -1,6 +1,6 @@
 import socketIOClient from 'socket.io-client';
 
-const socket = socketIOClient('http://localhost:3002');
+const socket = io('https://chat-app-b7o4.onrender.com'); // <-- koristiš URL sa Rendera
 
 function getMessage(cb) {
   socket.on('message', data => {
