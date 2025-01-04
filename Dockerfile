@@ -3,6 +3,10 @@ FROM node:18 AS client-builder
 WORKDIR /app/client
 COPY client/package.json client/yarn.lock ./
 RUN yarn install
+
+# Dodaj NODE_OPTIONS pre build komande
+ENV NODE_OPTIONS=--openssl-legacy-provider
+
 COPY client/ ./
 RUN yarn build
 
